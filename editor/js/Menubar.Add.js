@@ -82,6 +82,54 @@ Menubar.Add = function ( editor ) {
 	} );
 	options.add( option );
 
+	// Edge
+
+	var option = new UI.Row();
+	option.setClass( 'option' );
+	option.setTextContent( 'Edge' );
+	option.onClick( function () {
+
+		/*var geometry = new THREE.Geometry();
+		var vertex1 = new THREE.Vector3();
+		vertex1.x = 0;
+		vertex1.y = 2;
+		vertex1.z = 0;
+		var vertex2 = new THREE.Vector3();
+		vertex2.x = 0;
+		vertex2.y = 0;
+		vertex2.z = 1;
+		geometry.vertices.push( vertex1 );
+		geometry.vertices.push( vertex2 );
+
+		var material = new THREE.LineBasicMaterial( {
+			color: 0xffffff,
+			linewidth: 1,
+			linecap: 'round', //ignored by WebGLRenderer
+			linejoin:  'round' //ignored by WebGLRenderer
+		} );
+
+	  var edge = new THREE.LineSegments( geometry, material );
+*/
+var dir = new THREE.Vector3( 1, 2, 0 );
+
+//normalize the direction vector (convert to vector of length 1)
+dir.normalize();
+
+var origin = new THREE.Vector3( 0, 0, 0 );
+var length = 1;
+var hex = 0xffff00;
+
+var edge = new THREE.ArrowHelper( dir, origin, length, hex );
+//var edge = ArrowHelper(dir, origin, length, hex, headLength, headWidth )
+
+
+		edge.name = 'Edge ' + ( ++ meshCount );
+
+		editor.execute( new AddObjectCommand( edge ) );
+
+	} );
+	options.add( option );
+
 	// Circle
 
 	var option = new UI.Row();
