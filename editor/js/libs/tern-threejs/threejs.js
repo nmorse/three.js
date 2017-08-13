@@ -1351,6 +1351,14 @@
       "!doc": "A class for generating an icosahedron geometry.",
       "!type": "fn(radius: number, detail: number)"
     },
+    "EdgeGeometry": {
+      "!url": "http://threejs.org/docs/#Reference/geometries/EdgeGeometry",
+      "prototype": {
+        "!proto": "THREE.Geometry.prototype"
+      },
+      "!doc": "Class for connecting nodes in the graph of a network.",
+      "!type": "fn(points: [])"
+    },
     "LatheGeometry": {
       "!url": "http://threejs.org/docs/#Reference/geometries/LatheGeometry",
       "prototype": {

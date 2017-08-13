@@ -318,6 +318,15 @@ Object.assign( ObjectLoader.prototype, {
 
 						break;
 
+					case 'EdgeGeometry':
+					case 'EdgeBufferGeometry':
+
+						geometry = new Geometries[ data.type ](
+							data.points
+						);
+
+						break;
+
 					case 'BufferGeometry':
 
 						geometry = bufferGeometryLoader.parse( data );

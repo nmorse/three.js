@@ -28299,6 +28299,64 @@
 	LatheBufferGeometry.prototype.constructor = LatheBufferGeometry;
 
 	/**
+	 * @author astrodud / http://astrodud.isgreat.org/
+	 * @author zz85 / https://github.com/zz85
+	 * @author bhouston / http://clara.io
+	 * @author Mugen87 / https://github.com/Mugen87
+	 */
+
+	// EdgeGeometry
+
+	function EdgeGeometry( points) {
+
+		Geometry.call( this );
+
+		this.type = 'EdgeGeometry';
+
+		this.parameters = {
+			points: points
+		};
+
+		this.fromBufferGeometry( new EdgeBufferGeometry( points ) );
+		//this.mergeVertices();
+
+	}
+
+	EdgeGeometry.prototype = Object.create( Geometry.prototype );
+	EdgeGeometry.prototype.constructor = EdgeGeometry;
+
+	// EdgeBufferGeometry
+
+	function EdgeBufferGeometry( points ) {
+
+		BufferGeometry.call( this );
+
+		this.type = 'EdgeBufferGeometry';
+
+		this.parameters = {
+			points: points
+		};
+
+
+
+		// indices
+
+
+		// build geometry
+		alert("build geometry for n points: " + points.length );
+
+			//for (var i = 0; i < points.length; i ++ ) {
+			//	this.LineSegments(points);
+			//}
+
+
+
+	}
+
+	EdgeBufferGeometry.prototype = Object.create( BufferGeometry.prototype );
+	EdgeBufferGeometry.prototype.constructor = EdgeBufferGeometry;
+
+	/**
 	 * @author jonobr1 / http://jonobr1.com
 	 * @author Mugen87 / https://github.com/Mugen87
 	 */
@@ -29076,6 +29134,8 @@
 		PlaneBufferGeometry: PlaneBufferGeometry,
 		LatheGeometry: LatheGeometry,
 		LatheBufferGeometry: LatheBufferGeometry,
+		EdgeGeometry: EdgeGeometry,
+		EdgeBufferGeometry: EdgeBufferGeometry,
 		ShapeGeometry: ShapeGeometry,
 		ShapeBufferGeometry: ShapeBufferGeometry,
 		ExtrudeGeometry: ExtrudeGeometry,
@@ -34214,6 +34274,15 @@
 								data.segments,
 								data.phiStart,
 								data.phiLength
+							);
+
+							break;
+
+						case 'EdgeGeometry':
+						case 'EdgeBufferGeometry':
+
+							geometry = new Geometries[ data.type ](
+								data.points
 							);
 
 							break;
@@ -44024,6 +44093,8 @@
 	exports.PlaneBufferGeometry = PlaneBufferGeometry;
 	exports.LatheGeometry = LatheGeometry;
 	exports.LatheBufferGeometry = LatheBufferGeometry;
+	exports.EdgeGeometry = EdgeGeometry;
+	exports.EdgeBufferGeometry = EdgeBufferGeometry;
 	exports.ShapeGeometry = ShapeGeometry;
 	exports.ShapeBufferGeometry = ShapeBufferGeometry;
 	exports.ExtrudeGeometry = ExtrudeGeometry;

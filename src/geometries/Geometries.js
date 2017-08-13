@@ -13,6 +13,7 @@ export { SphereGeometry, SphereBufferGeometry } from './SphereGeometry.js';
 export { RingGeometry, RingBufferGeometry } from './RingGeometry.js';
 export { PlaneGeometry, PlaneBufferGeometry } from './PlaneGeometry.js';
 export { LatheGeometry, LatheBufferGeometry } from './LatheGeometry.js';
+export { EdgeGeometry, EdgeBufferGeometry } from './EdgeGeometry.js';
 export { ShapeGeometry, ShapeBufferGeometry } from './ShapeGeometry.js';
 export { ExtrudeGeometry, ExtrudeBufferGeometry } from './ExtrudeGeometry.js';
 export { EdgesGeometry } from './EdgesGeometry.js';

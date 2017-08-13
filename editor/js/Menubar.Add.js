@@ -48,7 +48,7 @@ Menubar.Add = function ( editor ) {
 	//
 
 	options.add( new UI.HorizontalRule() );
-
+/*
 	// Plane
 
 	var option = new UI.Row();
@@ -65,7 +65,7 @@ Menubar.Add = function ( editor ) {
 
 	} );
 	options.add( option );
-
+*/
 	// Box
 
 	var option = new UI.Row();
@@ -89,27 +89,33 @@ Menubar.Add = function ( editor ) {
 	option.setTextContent( 'Edge' );
 	option.onClick( function () {
 
-		/*var geometry = new THREE.Geometry();
+		var geometry = new THREE.Geometry();
 		var vertex1 = new THREE.Vector3();
 		vertex1.x = 0;
-		vertex1.y = 2;
+		vertex1.y = 0;
 		vertex1.z = 0;
 		var vertex2 = new THREE.Vector3();
-		vertex2.x = 0;
-		vertex2.y = 0;
+		vertex2.x = 1;
+		vertex2.y = 1;
 		vertex2.z = 1;
+//		var vertex3 = new THREE.Vector3();
+//		vertex3.x = 3;
+//		vertex3.y = 5;
+//		vertex3.z = 2;
 		geometry.vertices.push( vertex1 );
 		geometry.vertices.push( vertex2 );
+//		geometry.vertices.push( vertex3 );
 
 		var material = new THREE.LineBasicMaterial( {
-			color: 0xffffff,
+			color: 0xff0000,
 			linewidth: 1,
 			linecap: 'round', //ignored by WebGLRenderer
 			linejoin:  'round' //ignored by WebGLRenderer
 		} );
 
 	  var edge = new THREE.LineSegments( geometry, material );
-*/
+
+/*
 var dir = new THREE.Vector3( 1, 2, 0 );
 
 //normalize the direction vector (convert to vector of length 1)
@@ -121,7 +127,7 @@ var hex = 0xffff00;
 
 var edge = new THREE.ArrowHelper( dir, origin, length, hex );
 //var edge = ArrowHelper(dir, origin, length, hex, headLength, headWidth )
-
+*/
 
 		edge.name = 'Edge ' + ( ++ meshCount );
 
@@ -129,7 +135,7 @@ var edge = new THREE.ArrowHelper( dir, origin, length, hex );
 
 	} );
 	options.add( option );
-
+/*
 	// Circle
 
 	var option = new UI.Row();
@@ -260,7 +266,6 @@ var edge = new THREE.ArrowHelper( dir, origin, length, hex );
 	} );
 	options.add( option );
 
-	/*
 	// Teapot
 
 	var option = new UI.Row();
@@ -289,39 +294,37 @@ var edge = new THREE.ArrowHelper( dir, origin, length, hex );
 	options.add( option );
 	*/
 
-	// Lathe
+	// Edge2
 
 	var option = new UI.Row();
 	option.setClass( 'option' );
-	option.setTextContent( 'Lathe' );
+	option.setTextContent( 'Edge2' );
 	option.onClick( function() {
 
 		var points = [
-			new THREE.Vector2( 0, 0 ),
-			new THREE.Vector2( 4, 0 ),
-			new THREE.Vector2( 3.5, 0.5 ),
-			new THREE.Vector2( 1, 0.75 ),
-			new THREE.Vector2( 0.8, 1 ),
-			new THREE.Vector2( 0.8, 4 ),
-			new THREE.Vector2( 1, 4.2 ),
-			new THREE.Vector2( 1.4, 4.8 ),
-			new THREE.Vector2( 2, 5 ),
-			new THREE.Vector2( 2.5, 5.4 ),
-			new THREE.Vector2( 3, 12 )
+			new THREE.Vector3( 0, 0, 0 ),
+			new THREE.Vector3( 4, 0, 3 ),
+			new THREE.Vector3( 3.5, 0.5, 1 )
 		];
 		var segments = 20;
 		var phiStart = 0;
 		var phiLength = 2 * Math.PI;
 
-		var geometry = new THREE.LatheBufferGeometry( points, segments, phiStart, phiLength );
-		var mesh = new THREE.Mesh( geometry, new THREE.MeshStandardMaterial( { side: THREE.DoubleSide } ) );
-		mesh.name = 'Lathe ' + ( ++ meshCount );
+		var geometry = new THREE.EdgeBufferGeometry( points );
+		var material = new THREE.LineBasicMaterial( {
+			color: 0xffffff,
+			linewidth: 1,
+			linecap: 'round', //ignored by WebGLRenderer
+			linejoin:  'round' //ignored by WebGLRenderer
+		} );
+		var edge2 = new THREE.LineSegments( geometry, material );
+		edge2.name = 'Edge2 ' + ( ++ meshCount );
 
-		editor.execute( new AddObjectCommand( mesh ) );
+		editor.execute( new AddObjectCommand( edge2 ) );
 
 	} );
 	options.add( option );
-
+/*
 	// Sprite
 
 	var option = new UI.Row();
@@ -338,7 +341,7 @@ var edge = new THREE.ArrowHelper( dir, origin, length, hex );
 	options.add( option );
 
 	//
-
+*/
 	options.add( new UI.HorizontalRule() );
 
 	// PointLight
