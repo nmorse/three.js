@@ -49,17 +49,21 @@ function EdgeBufferGeometry( points ) {
 
 
 	// build geometry
-	alert("build geometry for n points: " + points.length );
-
-		//for (var i = 0; i < points.length; i ++ ) {
-		//	this.LineSegments(points);
-		//}
-
-
+	//alert("build geometry for n points: " + points.length );
+	this.vertices = [];
+	this.colors = [];
+	for (var i = 0; i < points.length; i ++ ) {
+		this.vertices.push(points[i]);
+		this.colors.push(0xff0000);
+	}
+	//this.addAttribute('position', {array: this.vertices});
+	////var positions = new Float32BufferAttribute( geometry.vertices.length * 3, 3 );
+	////this.addAttribute( 'position', positions.copyVector3sArray( geometry.vertices ) );
+	//this.addAttribute('vertices', new Array(this.vertices));
 
 }
 
-EdgeBufferGeometry.prototype = Object.create( BufferGeometry.prototype );
+EdgeBufferGeometry.prototype = Object.create( Geometry.prototype );
 EdgeBufferGeometry.prototype.constructor = EdgeBufferGeometry;
 
 

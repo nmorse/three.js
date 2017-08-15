@@ -104,6 +104,9 @@ Menubar.Add = function ( editor ) {
 //		vertex3.z = 2;
 		geometry.vertices.push( vertex1 );
 		geometry.vertices.push( vertex2 );
+		geometry.vertices.push(new THREE.Vector3(-10, 0, 0));
+geometry.vertices.push(new THREE.Vector3(0, 10, 0));
+geometry.vertices.push(new THREE.Vector3(10, 0, 0));
 //		geometry.vertices.push( vertex3 );
 
 		var material = new THREE.LineBasicMaterial( {
@@ -113,7 +116,7 @@ Menubar.Add = function ( editor ) {
 			linejoin:  'round' //ignored by WebGLRenderer
 		} );
 
-	  var edge = new THREE.LineSegments( geometry, material );
+	  var edge = new THREE.Line( geometry, material );
 
 /*
 var dir = new THREE.Vector3( 1, 2, 0 );
@@ -312,12 +315,12 @@ var edge = new THREE.ArrowHelper( dir, origin, length, hex );
 
 		var geometry = new THREE.EdgeBufferGeometry( points );
 		var material = new THREE.LineBasicMaterial( {
-			color: 0xffffff,
+			color: 0xff0000,
 			linewidth: 1,
 			linecap: 'round', //ignored by WebGLRenderer
 			linejoin:  'round' //ignored by WebGLRenderer
 		} );
-		var edge2 = new THREE.LineSegments( geometry, material );
+		var edge2 = new THREE.Line( geometry, material );
 		edge2.name = 'Edge2 ' + ( ++ meshCount );
 
 		editor.execute( new AddObjectCommand( edge2 ) );
