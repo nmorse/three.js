@@ -52,6 +52,7 @@ function EdgeBufferGeometry( points ) {
 	//alert("build geometry for n points: " + points.length );
 	this.vertices = [];
 	this.colors = [];
+	this.faces = [];
 	for (var i = 0; i < points.length; i ++ ) {
 		this.vertices.push(points[i]);
 		this.colors.push(0xff0000);
@@ -63,7 +64,7 @@ function EdgeBufferGeometry( points ) {
 
 }
 
-EdgeBufferGeometry.prototype = Object.create( Geometry.prototype );
+EdgeBufferGeometry.prototype = Object.create( EdgeGeometry.prototype );
 EdgeBufferGeometry.prototype.constructor = EdgeBufferGeometry;
 
 

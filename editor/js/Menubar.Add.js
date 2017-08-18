@@ -307,11 +307,9 @@ var edge = new THREE.ArrowHelper( dir, origin, length, hex );
 		var points = [
 			new THREE.Vector3( 0, 0, 0 ),
 			new THREE.Vector3( 4, 0, 3 ),
-			new THREE.Vector3( 3.5, 0.5, 1 )
+			new THREE.Vector3( 3.5, 0.5, 1 ),
+			new THREE.Vector3( 0.5, 0.5, 0.5 )
 		];
-		var segments = 20;
-		var phiStart = 0;
-		var phiLength = 2 * Math.PI;
 
 		var geometry = new THREE.EdgeBufferGeometry( points );
 		var material = new THREE.LineBasicMaterial( {
