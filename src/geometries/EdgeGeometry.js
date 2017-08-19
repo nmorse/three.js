@@ -13,17 +13,17 @@ import { _Math } from '../math/Math';
 
 // EdgeGeometry
 
-function EdgeGeometry( points) {
+function EdgeGeometry( points, fromNodeName, toNodeName) {
 
 	Geometry.call( this );
 
 	this.type = 'EdgeGeometry';
 
 	this.parameters = {
-		points: points
+		points: points, fromNodeName:fromNodeName, toNodeName: toNodeName
 	};
 
-	this.fromBufferGeometry( new EdgeBufferGeometry( points ) );
+	this.fromBufferGeometry( new EdgeBufferGeometry( points, fromNodeName, toNodeName ) );
 	//this.mergeVertices();
 
 }
@@ -33,14 +33,14 @@ EdgeGeometry.prototype.constructor = EdgeGeometry;
 
 // EdgeBufferGeometry
 
-function EdgeBufferGeometry( points ) {
+function EdgeBufferGeometry( points, fromNodeName, toNodeName ) {
 
 	BufferGeometry.call( this );
 
 	this.type = 'EdgeBufferGeometry';
 
 	this.parameters = {
-		points: points
+		points: points, fromNodeName: fromNodeName, toNodeName: toNodeName
 	};
 
 

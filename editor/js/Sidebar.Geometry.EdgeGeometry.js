@@ -11,6 +11,25 @@ Sidebar.Geometry.EdgeGeometry = function( editor, object ) {
 	var geometry = object.geometry;
 	var parameters = geometry.parameters;
 
+	// fromNodeName
+
+	var fromNodeNameRow = new UI.Row();
+	var fromNodeName = new UI.Input( parameters.fromNodeName ).onChange( update );
+
+	fromNodeNameRow.add( new UI.Text( 'From Node (name)' ).setWidth( '90px' ) );
+	fromNodeNameRow.add( fromNodeName );
+
+	container.add( fromNodeNameRow );
+
+	// toNodeName
+
+	var toNodeNameRow = new UI.Row();
+	var toNodeName = new UI.Input( parameters.toNodeName ).onChange( update );
+
+	toNodeNameRow.add( new UI.Text( 'To Node (name)' ).setWidth( '90px' ) );
+	toNodeNameRow.add( toNodeName );
+
+	container.add( toNodeNameRow );
 
 	// points
 
@@ -121,7 +140,7 @@ Sidebar.Geometry.EdgeGeometry = function( editor, object ) {
 	}
 
 	function update() {
-
+		//var fromNodeName = "", toNodeName = "";
 		var points = [];
 		var count = 0;
 
@@ -138,7 +157,7 @@ Sidebar.Geometry.EdgeGeometry = function( editor, object ) {
 		}
 
 		editor.execute( new SetGeometryCommand( object, new THREE[ geometry.type ](
-			points
+			points, fromNodeName.getValue(), toNodeName.getValue()
 		) ) );
 
 	}

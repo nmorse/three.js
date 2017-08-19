@@ -311,10 +311,10 @@ var edge = new THREE.ArrowHelper( dir, origin, length, hex );
 			new THREE.Vector3( 0.5, 0.5, 0.5 )
 		];
 
-		var geometry = new THREE.EdgeBufferGeometry( points );
+		var geometry = new THREE.EdgeBufferGeometry( points, "A", "B" );
 		var material = new THREE.LineBasicMaterial( {
-			color: 0xff0000,
-			linewidth: 1,
+			color: 0xaa0033,
+			linewidth: 3,
 			linecap: 'round', //ignored by WebGLRenderer
 			linejoin:  'round' //ignored by WebGLRenderer
 		} );

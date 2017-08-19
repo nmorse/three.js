@@ -132,6 +132,9 @@ Object.assign( Ray.prototype, {
 			segDir.copy( v1 ).sub( v0 ).normalize();
 			diff.copy( this.origin ).sub( segCenter );
 
+			if (!v0.distanceTo) {
+				v0 = new Vector3(v0.x, v0.y, v0.z);
+			}
 			var segExtent = v0.distanceTo( v1 ) * 0.5;
 			var a01 = - this.direction.dot( segDir );
 			var b0 = diff.dot( this.direction );
